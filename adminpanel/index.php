@@ -49,7 +49,7 @@ $jumlahProduk = mysqli_num_rows($produk);
                                 <h3 class="fs-2">Kategori</h3>
                                 <p class="fs-5"><?php echo $jumlahKategori; ?> kategori</p>
                                 <p>
-                                    <a href="kategori.php" class="text-decoration-none text-dark">Lihat details</a>
+                                    <a href="kategori.php" class="btn btn-dark">Lihat details</a>
                                 </p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ $jumlahProduk = mysqli_num_rows($produk);
                                 <h3 class="fs-2">Produk</h3>
                                 <p class="fs-5"><?php echo $jumlahProduk; ?> produk</p>
                                 <p>
-                                    <a href="kategori.php" class="text-decoration-none text-white-50">Lihat detail</a>
+                                    <a href="produk.php" class="btn btn-light">Lihat detail</a>
                                 </p>
                             </div>
                         </div>

@@ -37,12 +37,12 @@ $jumlahKategori = mysqli_num_rows($kategori);
         </nav>
 
         <div class="my-5 col-12 col-md-6">
-            <h3>Tabah kategori</h3>
+            <h3>Tmabah kategori</h3>
 
             <form action="" method="post">
                 <div class="mt-1">
                     <label for="kategori">Kategori</label>
-                    <input type="text" id="kategori" name="kategori" placeholder="input nama" class="form-control">
+                    <input type="text" id="kategori" name="kategori" placeholder="input nama" class="form-control border-dark">
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-primary" type="submit" name="simpan_kategori">Simpan</button>
@@ -81,7 +81,7 @@ $jumlahKategori = mysqli_num_rows($kategori);
         <div class="mt-3">
             <h2>List Kategori</h2>
             <div class="table-responsive mt-3">
-                <table class="table p-3">
+                <table class="table p-3 border-dark">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -106,12 +106,12 @@ $jumlahKategori = mysqli_num_rows($kategori);
                                     <td><?php echo $number; ?></td>
                                     <td><?php echo $data['nama']; ?></td>
                                     <td>
-                                        <a href="kategori-detail.php?idKategori=<?php echo $data['id'] ?>" class="btn btn-info"><i class="fa-brands fa-searchengin"></i></i></a>
+                                        <a href="kategori-detail.php?idKategori=<?php echo $data['id'] ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></i></a>
                                     </td>
                                 </tr>
                         <?php
+                                $number++;
                             }
-                            $number++;
                         }
                         ?>
                     </tbody>
