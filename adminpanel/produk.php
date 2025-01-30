@@ -2,6 +2,7 @@
 require "session.php";
 require "../koneksi.php";
 
+// Query untuk mengambil data produk
 $query = mysqli_query($con, "SELECT a.*, b.nama AS nama_kategori FROM produk a JOIN kategori b ON a.kategori_id=b.id");
 $jumlahProduk = mysqli_num_rows($query);
 
@@ -21,6 +22,37 @@ function generateRandomString($length = 10)
 
     return $randomString;
 }
+
+// jika tombol hapus di tekan 
+if (isset($_POST['hapus'])) {
+    $idProduk = $_POST['idProduk'];
+
+    // Ambil nama gambar produk sebelum menghapus dari database
+    $queryGambar = mysqli_query($con, "SELECT gambar FROM produk WHERE id = '$idProduk'");
+    $dataGambar = mysqli_fetch_assoc($queryGambar);
+    $gambarHapus = $dataGambar['gambar'];
+
+    // Query untuk menghapus produk berdasarkan ID
+    $queryHapus = mysqli_query($con, "DELETE FROM produk WHERE id = '$idProduk'");
+
+    if ($queryHapus) {
+        // Menghapus gambar dari server
+        $filePath = "../img/" . $gambarHapus;
+        if (file_exists($filePath)) {
+            unlink($filePath); // Hapus file gambar
+        }
+
+        echo '<div class="alert alert-success mt-3" role="alert">
+                Produk berhasil dihapus.
+              </div>';
+        echo '<meta http-equiv="refresh" content="0.5; url=produk.php" />';
+    } else {
+        echo '<div class="alert alert-danger mt-3" role="alert">
+                Gagal menghapus produk. ' . mysqli_error($con) . '
+              </div>';
+    }
+}
+
 ?>
 
 
@@ -34,6 +66,8 @@ function generateRandomString($length = 10)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
+
+
 
 <body>
     <?php require "navbar.php" ?>
@@ -50,8 +84,6 @@ function generateRandomString($length = 10)
                 </li>
             </ol>
         </nav>
-
-
 
 
         <!-- tambah produk -->
@@ -137,7 +169,7 @@ function generateRandomString($length = 10)
                             if ($imageFileType !== 'jpg' && $imageFileType !== 'png' && $imageFileType !== 'webp') {
                             ?>
                                 <div class="alert alert-danger mt-3" role="alert">
-                                    format file harus jpg/png !
+                                    format file harus jpg/png/webp !
                                 </div>
                         <?php
                             } else {
@@ -175,7 +207,7 @@ function generateRandomString($length = 10)
                             <th>Kategori</th>
                             <th>Harga</th>
                             <th>Stok</th>
-                            <th>Action</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -197,9 +229,16 @@ function generateRandomString($length = 10)
                                     <td><?php echo $data['nama_kategori'] ?></td>
                                     <td><?php echo $data['harga'] ?></td>
                                     <td><?php echo $data['stok'] ?></td>
-                                    <td>
-                                        <a href="produk-detail.php?idProduk=<?php echo $data['id'] ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></i></a>
+                                    <td class="text-center">
+                                        <a href="produk-detail.php?idProduk=<?php echo $data['id'] ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                        <form method="POST" style="display:inline;">
+                                            <input type="hidden" name="idProduk" value="<?php echo $data['id']; ?>">
+                                            <button type="submit" name="hapus" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')">
+                                                Hapus
+                                            </button>
+                                        </form>
                                     </td>
+
                                 </tr>
                         <?php
                                 $number++;

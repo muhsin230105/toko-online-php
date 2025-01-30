@@ -61,7 +61,7 @@ $data = mysqli_fetch_array($query);
                         ?>
                             <div class="alert alert-info mt-3" role="alert">
                                 Berhasil di edit !
-                                <meta http-equiv="refresh" content="1; url=kategori.php">
+                                <meta http-equiv="refresh" content="0.5; url=kategori.php">
                             </div>
                     <?php
                         }
@@ -74,7 +74,7 @@ $data = mysqli_fetch_array($query);
                 $dataCount = mysqli_num_rows($queryCheck);
                 if ($dataCount) {
                     ?>
-                    <div class="alert alert-warning mt-3" role="alert">
+                    <div class="alert alert-danger mt-3" role="alert">
                         Tidak Bisa Di Hapus, Ktegori Udah di Gunakan Dalam Produk
                     </div>
                 <?php
@@ -84,7 +84,7 @@ $data = mysqli_fetch_array($query);
                 $querryHapus = mysqli_query($con, "DELETE FROM kategori WHERE id='$id'");
                 if ($querryHapus) {
                 ?>
-                    <div class="alert alert-info mt-3" role="alert">
+                    <div class="alert alert-danger mt-3" role="alert">
                         Berhasil di hapus !
                         <meta http-equiv="refresh" content="1; url=kategori.php">
                     </div>

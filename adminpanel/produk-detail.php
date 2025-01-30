@@ -146,10 +146,10 @@ function generateRandomString($length = 10)
                             </div>
                             <?php
                         } else {
-                            if ($imageFileType !== 'jpg' && $imageFileType !== 'png') {
+                            if ($imageFileType !== 'jpg' && $imageFileType !== 'png' && $imageFileType !== 'webp') {
                             ?>
                                 <div class="alert alert-danger mt-3" role="alert">
-                                    format file harus jpg/png !
+                                    format file harus jpg/png/webe !
                                 </div>
                                 <?php
                             } else {

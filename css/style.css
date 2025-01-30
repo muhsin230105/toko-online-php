@@ -1,68 +1,159 @@
 .warna1{
-    background-color: #876445;
+    background-color: #0173ff;
 }
 .warna2{
-    background-color: #CA965C;
+    background-color: #2673d1;
 }
 .warna3{
-    background-color: #EEC373;
+    background-color: #5d96dc;
 }
 .warna4{
-    background-color: #F4DFBA;
+    background-color: #72a3df;
 }
 
 .banner{
-    height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('../img/banner.png');  
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),url('../img/banner.png'); 
+    background-size: cover;
+    background-position: 67% 35%;
+    background-repeat: no-repeat;
 }
 
-.kategori-terlaris-ardunio{
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('../img/Arduino.jpg');  
+.banner-produk{
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),url('../img/bannerproduk.jpg');
+    background-size: cover;
+    background-position: 67% 35%;  
+}
+.banner-about {
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('../img/bannerAboutme.jpg');
+    background-size: cover;
+    background-position: 50% 20%;
+}
+.kategori-terlaris-laptop{
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url('../img/laptop.png');  
     background-size: cover;
     background-position: center;
 }
-.kategori-terlaris-servo{
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('../img/servo.jpg');  
+.kategori-terlaris-hp{
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url('../img/hp.png');  
     background-size: cover;
     background-position: center;
 }
-.kategori-terlaris-ic{
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('../img/IC.jpg');  
+.kategori-terlaris-aksesoris{
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),url('../img/aksesoris.png');  
     background-size: cover;
     background-position: center;
 }
 
 
 .text-shadow {
-    color: white; /* Warna teks */
-    -webkit-text-stroke: 0.1px black; /* Warna dan ketebalan garis tepi */
-    text-shadow: 3px 3px 5px rgba(9, 128, 240, 0.5);
+    color: rgb(255, 255, 255); /* Warna teks */
+    -webkit-text-stroke: 0.1px rgb(27, 65, 132); /* Warna dan ketebalan garis tepi */
+    text-shadow: 3px 3px 5px rgba(47, 87, 173, 0.5);
 }
 
 .highlighted-kategori{
     height: 250px;
+    border-radius: 15px; 
+}
+
+.highlighted-kategori:hover h4 {
+    font-size: 50px; /* Ukuran teks saat hover */
+    transition: font-size 0.5s ease; /* Animasi transisi */
 }
 
 .no-decoration{
     text-decoration: none;
     color: white;
 }
-.no-decoration:hover {
-    
+/* .no-decoration:hover {
+    font-size: 50px;
+    transition: font-size 0.3s ease; 
     color: #EEC373;
-}
+} */
 
 .text-harga{
     font-size: 18px;
 }
 
+
+
+
 .img-box{
-    height:450px;
+    height:400px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
 }
+
 
 .img-box img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+
+.img-box-produk{
+    height: 340px;
+    overflow: hidden;
+    }
+    
+.img-box-produk img{
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    }
+
+
+.img-produk-terkait{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.content-subscribe {
+    background-color: #3dabff;
+}
+
+.bg-footer {
+    background-color: #0173ff; 
+}
+
+.btn-full {
+    width: 100%;
+  }
+
+
+
+
+.nav-link.active {
+    font-weight: bold; /* Menebalkan teks */
+    color: #fff !important; /* Warna teks */
+    background-color: #3dabff; /* Warna latar belakang */
+    border-radius: 5px; /* Membuat sudut lebih halus */
+}
+
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #444;
+    border: none;
+    margin: 5px;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #007bff; /* Warna biru untuk indikator aktif */
+  }
+
+.warnaWhatsapp{
+    background-color: #25d366;
 }
